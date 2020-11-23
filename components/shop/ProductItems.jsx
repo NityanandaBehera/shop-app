@@ -11,7 +11,7 @@ const ProductItems = (props) => {
       </View>
       <View style={styles.actions}>
         <Button title="View Details" onPress={props.onViewDetails} />
-        <Button title="Go to Cart" onPress={props.onAddtoCart} />
+        <Button title="Add to Cart" onPress={props.onAddtoCart} />
       </View>
     </View>
   );
