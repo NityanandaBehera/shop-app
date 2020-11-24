@@ -1,14 +1,34 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { FlatList, Text } from 'react-native';
+import { useSelector, useDispatch } from 'react-redux';
+import { HeaderButtons, Item } from 'react-navigation-header-buttons';
+
+import HeaderButton from '../../components/UI/HeaderButton';
 
 const OrdersScreen = () => {
+  const orders = useSelector((state) => state.order.orders);
   return (
-    <View>
-      <Text></Text>
-    </View>
+    <FlatList
+      data={orders}
+      renderItem={(itemData) => <Text>{itemData.item.totalAmount}</Text>}
+    />
   );
 };
 
-export default OrdersScreen;
+OrdersScreen.navigationOptions = (navData) => {
+  return {
+    headerLeft: () => (
+      <HeaderButtons HeaderButtonComponent={HeaderButton}>
+        <Item
+          title="Menu"
+          iconName="md-menu"
+          onPress={() => {
+            navData.navigation.toggleDrawer();
+          }}
+        />
+      </HeaderButtons>
+    ),
+  };
+};
 
-const styles = StyleSheet.create({});
+export default OrdersScreen;

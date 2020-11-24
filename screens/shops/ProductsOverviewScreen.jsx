@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, FlatList } from 'react-native';
+import { FlatList } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 
@@ -37,6 +37,17 @@ const ProductsOverviewScreen = (props) => {
 
 ProductsOverviewScreen.navigationOptions = (navData) => {
   return {
+    headerLeft: () => (
+      <HeaderButtons HeaderButtonComponent={HeaderButton}>
+        <Item
+          title="Menu"
+          iconName="md-menu"
+          onPress={() => {
+            navData.navigation.toggleDrawer();
+          }}
+        />
+      </HeaderButtons>
+    ),
     headerRight: () => (
       <HeaderButtons HeaderButtonComponent={HeaderButton}>
         <Item
@@ -52,5 +63,3 @@ ProductsOverviewScreen.navigationOptions = (navData) => {
 };
 
 export default ProductsOverviewScreen;
-
-const styles = StyleSheet.create({});
