@@ -1,6 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, Button } from 'react-native';
 
+import Colors from '../../constants/Colors';
+
 const ProductItems = (props) => {
   return (
     <View style={styles.product}>
@@ -10,8 +12,16 @@ const ProductItems = (props) => {
         <Text style={styles.price}>${props.price}</Text>
       </View>
       <View style={styles.actions}>
-        <Button title="View Details" onPress={props.onViewDetails} />
-        <Button title="Add to Cart" onPress={props.onAddtoCart} />
+        <Button
+          color={Colors.primary}
+          title="View Details"
+          onPress={props.onViewDetails}
+        />
+        <Button
+          color={Colors.primary}
+          title="Add to Cart"
+          onPress={props.onAddtoCart}
+        />
       </View>
     </View>
   );
