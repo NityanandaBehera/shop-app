@@ -11,18 +11,7 @@ const ProductItems = (props) => {
         <Text style={styles.title}>{props.title}</Text>
         <Text style={styles.price}>${props.price}</Text>
       </View>
-      <View style={styles.actions}>
-        <Button
-          color={Colors.primary}
-          title="View Details"
-          onPress={props.onViewDetails}
-        />
-        <Button
-          color={Colors.primary}
-          title="Add to Cart"
-          onPress={props.onAddtoCart}
-        />
-      </View>
+      <View style={styles.actions}>{props.children}</View>
     </View>
   );
 };
